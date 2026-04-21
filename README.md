@@ -49,45 +49,38 @@ Running the analyzer on one year of RELIANCE price data:
 
 ### Terminal Report
 
-​```
 ════════════════════════════════════════════════════════════
-  TRADING STATISTICS ANALYZER  |  NSE India
+TRADING STATISTICS ANALYZER  |  NSE India
 ════════════════════════════════════════════════════════════
-  Ticker   : RELIANCE
-  Period   : 1y  (245 trading days)
-  Capital  : ₹50,000
-
+Ticker   : RELIANCE
+Period   : 1y  (245 trading days)
+Capital  : ₹50,000
 ════════════════════════════════════════════════════════════
-  1 & 2 │ SHARPE & SORTINO RATIOS
+1 & 2 │ SHARPE & SORTINO RATIOS
 ════════════════════════════════════════════════════════════
-  Sharpe Ratio  : 0.142  ○ Weak
-  Sortino Ratio : 0.218  (penalises downside only)
-
+Sharpe Ratio  : 0.142  ○ Weak
+Sortino Ratio : 0.218  (penalises downside only)
 ════════════════════════════════════════════════════════════
-  3 │ MAX DRAWDOWN
+3 │ MAX DRAWDOWN
 ════════════════════════════════════════════════════════════
-  Max Drawdown  : -18.07%
-  Worst Date    : 2026-03-27
-  Final Equity  : ₹54,467.41
-
+Max Drawdown  : -18.07%
+Worst Date    : 2026-03-27
+Final Equity  : ₹54,467.41
 ════════════════════════════════════════════════════════════
-  11 │ MONTE CARLO (500 SIMULATIONS)
+11 │ MONTE CARLO (500 SIMULATIONS)
 ════════════════════════════════════════════════════════════
-  Best case  (95th%): ₹    61,234.00
-  Median            : ₹    54,467.00
-  Worst case  (5th%): ₹    48,892.00
-  Profitable paths  : 65.9%
-
+Best case  (95th%): ₹    61,234.00
+Median            : ₹    54,467.00
+Worst case  (5th%): ₹    48,892.00
+Profitable paths  : 65.9%
 ════════════════════════════════════════════════════════════
-  SUMMARY VERDICT
+SUMMARY VERDICT
 ════════════════════════════════════════════════════════════
-  Sharpe       : 0.14  ○
-  Max Drawdown : -18.1%  ✓
-  Edge (p<0.05): ○ Unconfirmed — more data needed
-  Profitable MC: 66% of simulations
-
-  ▶ OVERALL: Weak edge — trade small, monitor closely
-​```
+Sharpe       : 0.14  ○
+Max Drawdown : -18.1%  ✓
+Edge (p<0.05): ○ Unconfirmed — more data needed
+Profitable MC: 66% of simulations
+▶ OVERALL: Weak edge — trade small, monitor closely
 
 ---
 
@@ -95,25 +88,25 @@ Running the analyzer on one year of RELIANCE price data:
 
 Clone the repository and install the dependencies:
 
-​```bash
+````bash
 git clone https://github.com/QuantShivam/trading-stats-analyzer.git
 cd trading-stats-analyzer
 pip install -r requirements.txt
-​```
+````
 
 Run with defaults (RELIANCE, 1 year, ₹50,000 capital):
 
-​```bash
+````bash
 python Trading-stats-analyzer.py
-​```
+````
 
 Run on any NSE ticker, any period, any capital:
 
-​```bash
+````bash
 python Trading-stats-analyzer.py --ticker TCS.NS --period 6mo
 python Trading-stats-analyzer.py --ticker INFY.NS --capital 100000
 python Trading-stats-analyzer.py --ticker HDFCBANK.NS --period 2y --capital 75000
-​```
+````
 
 All four charts are saved automatically to `/images/` on every run.
 
