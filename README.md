@@ -34,3 +34,104 @@ Ten institutional-grade statistical tests on any NSE equity or strategy return s
 - **Monte Carlo Simulation (500 paths)** — worst-case scenarios and outcome ranges
 
 Every metric comes with a plain-English verdict. No black boxes. All formulas in the code.
+
+---
+
+## Sample Output
+
+Running the analyzer on one year of RELIANCE price data:
+
+![Drawdown Chart](images/drawdown.png)
+
+![Returns Distribution](images/returns_distribution.png)
+
+![Monte Carlo Fan](images/monte_carlo_fan.png)
+
+### Terminal Report
+
+​```
+════════════════════════════════════════════════════════════
+  TRADING STATISTICS ANALYZER  |  NSE India
+════════════════════════════════════════════════════════════
+  Ticker   : RELIANCE
+  Period   : 1y  (245 trading days)
+  Capital  : ₹50,000
+
+════════════════════════════════════════════════════════════
+  1 & 2 │ SHARPE & SORTINO RATIOS
+════════════════════════════════════════════════════════════
+  Sharpe Ratio  : 0.142  ○ Weak
+  Sortino Ratio : 0.218  (penalises downside only)
+
+════════════════════════════════════════════════════════════
+  3 │ MAX DRAWDOWN
+════════════════════════════════════════════════════════════
+  Max Drawdown  : -18.07%
+  Worst Date    : 2026-03-27
+  Final Equity  : ₹54,467.41
+
+════════════════════════════════════════════════════════════
+  11 │ MONTE CARLO (500 SIMULATIONS)
+════════════════════════════════════════════════════════════
+  Best case  (95th%): ₹    61,234.00
+  Median            : ₹    54,467.00
+  Worst case  (5th%): ₹    48,892.00
+  Profitable paths  : 65.9%
+
+════════════════════════════════════════════════════════════
+  SUMMARY VERDICT
+════════════════════════════════════════════════════════════
+  Sharpe       : 0.14  ○
+  Max Drawdown : -18.1%  ✓
+  Edge (p<0.05): ○ Unconfirmed — more data needed
+  Profitable MC: 66% of simulations
+
+  ▶ OVERALL: Weak edge — trade small, monitor closely
+​```
+
+---
+
+## Installation
+
+Clone the repository and install the dependencies:
+
+​```bash
+git clone https://github.com/QuantShivam/trading-stats-analyzer.git
+cd trading-stats-analyzer
+pip install -r requirements.txt
+​```
+
+Run with defaults (RELIANCE, 1 year, ₹50,000 capital):
+
+​```bash
+python Trading-stats-analyzer.py
+​```
+
+Run on any NSE ticker, any period, any capital:
+
+​```bash
+python Trading-stats-analyzer.py --ticker TCS.NS --period 6mo
+python Trading-stats-analyzer.py --ticker INFY.NS --capital 100000
+python Trading-stats-analyzer.py --ticker HDFCBANK.NS --period 2y --capital 75000
+​```
+
+All four charts are saved automatically to `/images/` on every run.
+
+---
+
+## Run this on your own strategy
+
+If you have your own trade history or a custom strategy and want this report run on your numbers — including the four charts — I can turn around a full statistical report in 48 hours.
+
+**Email:** [shivam@quantshivam.com](mailto:shivam@quantshivam.com)
+**LinkedIn:** [linkedin.com/in/-shivam-tyagi-](https://www.linkedin.com/in/-shivam-tyagi-/)
+
+Send a CSV of your trade returns (daily or per-trade). I'll return a PDF report with all ten metrics, all four charts, and a plain-English verdict on whether your edge is statistically real.
+
+---
+
+## About the author
+
+**Shivam Tyagi** — CMT Level I charterholder. Python developer focused on quantitative tools for Indian markets. Available for freelance work on data automation, backtesting, and trading analytics projects.
+
+[github.com/QuantShivam](https://github.com/QuantShivam) · [shivam@quantshivam.com](mailto:shivam@quantshivam.com)
